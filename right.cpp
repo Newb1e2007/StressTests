@@ -73,7 +73,7 @@ int right(string &s, int arr[]) {
     }*/
     long long maxWeight = 0;
     int maxDiff = s.length() - 1;
-    for (int p = 0; p < 26 ; p++) {
+    for (auto p = 0; p < 26 ; p++) {
         while (letter_count[p.first] > 1) {
             maxWeight += maxDiff * p.second;
             maxDiff -= 2;
@@ -84,7 +84,7 @@ int right(string &s, int arr[]) {
 
 int main() {
     string s;
-    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26}
+    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26};
     cout << right(s, arr);
     return 0;
 }
