@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void mergeSort(pair<char, int> arr[], pair<char, int> buffer[], int left, int right, int middle)
+void mergeSort1(pair<char, int> arr[], pair<char, int> buffer[], int left, int right, int middle)
 {
     int i = left;
     int j = middle + 1;
@@ -37,14 +37,14 @@ void mergeSort(pair<char, int> arr[], pair<char, int> buffer[], int left, int ri
     return;
 }
 
-void sort(pair<char, int> arr[], pair<char, int> buffer[], int left, int right)
+void sort1(pair<char, int> arr[], pair<char, int> buffer[], int left, int right)
 {
     int middle = (right - left) / 2 + left;
     if (left < right)
     {
-        sort(arr, buffer, left, middle);
-        sort(arr, buffer, middle + 1, right);
-        mergeSort(arr, buffer, left, right, middle);
+        sort1(arr, buffer, left, middle);
+        sort1(arr, buffer, middle + 1, right);
+        mergeSort1(arr, buffer, left, right, middle);
     }
     return;
 }
@@ -65,7 +65,7 @@ int right(string &s, int arr[]) { // подсчет веса любой стро
             letter_count[s[i]]++;
         }
     }
-    sort(letter_weight, buffer, 0, 25);
+    sort1(letter_weight, buffer, 0, 25);
     long long maxWeight = 0;
     int maxDiff = size - 1;
     for (int p = 0; p < 26 ; p++) {

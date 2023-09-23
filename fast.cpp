@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <chrono>
 
 using namespace std;
 
@@ -47,7 +48,7 @@ void sort(pair<char, int> arr[], pair<char, int> buffer[], int left, int right)
     return;
 }
 
-int fast(string &s, int arr[]) {
+pair<string, int> fast(string &s, int arr[]) {
     ios::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
@@ -68,8 +69,9 @@ int fast(string &s, int arr[]) {
             letter_count[s[i]]++;
         }
     }
+    auto start = chrono::high_resolution_clock::now();
     sort(letter_weight, buffer, 0, 25);
-    char answer[size + 1];
+    char answer[size];
     int i = 0, j = size - 1;
     for (auto pair : letter_weight) {
         while (letter_count[pair.first] > 1) {
@@ -86,7 +88,15 @@ int fast(string &s, int arr[]) {
             i++;
         }
     }
-    answer[size] = 0;
-    cout << answer;
-    return 0;
+    //answer[size] = 0;
+    //cout << answer;
+    string s_answer = string(answer);
+    freopen("output.txt", "w", stdout);
+    cout << s_answer;
+
+
+    auto end = chrono::high_resolution_clock::now();
+    auto duration = chrono::duration_cast<std::chrono::microseconds>(end - start);
+
+    return make_pair(s_answer, duration.count());
 }

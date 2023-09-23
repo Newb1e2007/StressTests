@@ -7,7 +7,7 @@
 
 using namespace std;
 
-void solve();
+void solve(int n);
 
 //int n = 0, tf = 0, tr = 0; // кол-во тестов,  кол-во времени в секндак для fast и right
 
@@ -20,7 +20,7 @@ int main() {
     generate_tests(n);
     
     freopen("tests.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
+    freopen("differences.txt", "w", stdout);
     //freopen("right_out.txt", "w", stdout);
 
     srand(1);
@@ -37,8 +37,16 @@ void solve(int n) {
         for (int j = 0; j < 26; j++) {
             cin >> arr[i];
         }
-        
-        cout << fast(inpS, arr);
+        pair <string, int> fans = fast(inpS, arr);
+        long long weight1 = right(fans.first, arr);
+        long long weight2 = right(inpS, arr);
+        cout << "Тест " << i + 1 << " Fast: " << weight1 << " Right: " << weight2;
+        //(weight1 != weight2) ? cout << " False; Time " << fans.second : cout << 
+        if (weight1 != weight2) {
+            cout << " False; Time " << fans.second << "\n";
+        } else {
+            cout << " True; Time " << fans.second << "\n";
+        }
     }
     return;
 }
