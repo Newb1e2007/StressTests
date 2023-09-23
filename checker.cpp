@@ -5,4 +5,5 @@
 using namespace std;
 
 bool check(string &a, string &b, vector<int> weight) {
+    return true;
 }
