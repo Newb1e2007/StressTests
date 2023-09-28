@@ -1,9 +1,7 @@
-#include <bits/stdc++.h>
-
-#include "fast.cpp"
-#include "right.cpp"
-#include "gen_test.cpp"
-#include "checker.cpp"
+#include "fast.h"
+#include "right.h"
+#include "gen_test.h"
+#include "checker.h"
 
 using namespace std;
 

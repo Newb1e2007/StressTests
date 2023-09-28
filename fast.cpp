@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include "fast.h"
+
 #include <chrono>
 
 using namespace std;
