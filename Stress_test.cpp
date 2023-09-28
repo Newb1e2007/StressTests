@@ -35,9 +35,9 @@ void solve(int n) {
         for (int j = 0; j < 26; j++) {
             cin >> arr[i];
         }
-        pair <string, int> fans = fast(inpS, arr);
-        long long weight1 = right(fans.first, arr);
-        long long weight2 = right(inpS, arr);
+        pair <string, int> fans = fast::fast(inpS, arr);
+        long long weight1 = right::right(fans.first, arr);
+        long long weight2 = right::right(inpS, arr);
         cout << "Тест " << i + 1 << " Fast: " << weight1 << " Right: " << weight2;
         //(weight1 != weight2) ? cout << " False; Time " << fans.second : cout << 
         if (weight1 != weight2) {
